@@ -116,3 +116,32 @@ bookForm.addEventListener('submit', (e) => {
     //html form has various functions already (was clearing fields manually before.)
     bookForm.reset();
 })
+
+
+addBookToLibrary(
+    'Jane Eyre',
+    'Charlotte Bronte',
+    536,
+    false
+)
+
+addBookToLibrary(
+    "Harry Potter and the Sorcerer's Stone",
+    "J. K. Rowling",
+    255,
+    true
+)
+
+addBookToLibrary(
+    "The Alchemist",
+    "Paulo Coelho",
+    300,
+    false
+)
+
+addBookToLibrary(
+    "Of Mice and Men",
+    "John Steinbeck",
+    107,
+    false
+)

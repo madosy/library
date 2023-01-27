@@ -1,3 +1,28 @@
+:root {
+    --background: #e3f6f5;
+    --card-background: #fffffe;
+    --headline: #272343;
+    --sub-headline: #2d334a;
+    --card-paragraph: #2d334a;
+    
+    --stroke: #272343;
+    --ico-secondary: #e3f6f5;
+    --ico-highlight: #ffd803;
+    --ico-tertiary: #bae8e8;
+
+}
+
+/* .header{
+    border-bottom:var(--stroke) 5px solid;
+    margin-bottom: 15px;
+} */
+
+.accent{
+    color: var(--ico-tertiary);
+    -webkit-text-stroke: 2px var(--stroke);
+    margin-left: 5px;
+}
+
 input {
     display: block;
 }
@@ -11,36 +36,49 @@ body > div.bookshelf input[type="checkbox"] {
 }
 
 .book > .checkbox:has(input[type="checkbox"]) {
-    background-color: #d3d3d3
+    background-color: #ededed;
+    margin-top: 5px;
 }
 
 .book > .checkbox:has(input[type="checkbox"]:checked) {
-    background-color: green;
+    background-color: rgb(170, 203, 115);
 
+}
+
+body > div.bookshelf div.checkbox > label::before {
+    content: 'Not';
+}
+
+/* Using CSS to conditionally update read status */
+body > div.bookshelf div.checkbox:has(input[type="checkbox"]:checked) label::before {
+    content: '';
+}
+
+body {
+    background-color: var(--background);
+    box-sizing: border-box;
 }
 
 .bookshelf {
     display: grid;
-    grid-template-columns: 300px;
-    row-gap: 10px;
-}
-
-.book{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: 1px black solid;
-    border-radius: 5px;
-
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
 }
 
 .x{
-    background-color: red;
+    background-image: url(./images/red-x-line-icon.png);
+    background-size: cover;
     height: 15px;
     width: 15px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
+    opacity: 10%;
+}
+
+.x:hover{
+   background-image: url(./images/red-x-icon.png);
+   opacity: 100%; 
 }
 
 label{
@@ -48,6 +86,56 @@ label{
    user-select: none;
 }
 
+.book{
+    background-color: var(--card-background);
+    display: grid;
+    grid-template-rows: 1fr max-content max-content max-content;
+    position: relative;
+    /* border: 1px black solid; */
+    border-radius: 10px;
+    padding: 20px 15px;
+    text-align: center;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.title, .author, .pages {
+    margin-bottom: 10px;
+    align-self: center;
+    color: var(--card-paragraph);
+}
+
+.title {
+    color: var(--headline);
+}
+
+.checkbox {
+    border-radius: 15px;
+    padding: 3px;
+    bottom: 0;
+}
+
+
+.pages::after {
+    content: " pages"
+}
+
+
 .template {
     display: none;
+}
+
+@media only screen and (max-width: 300px) {
+    .bookshelf {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .header h1 {
+        font-size: 1rem;
+    }
+    
+    .book{
+        height: fit-content;
+    }
 }
