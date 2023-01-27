@@ -1,0 +1,53 @@
+input {
+    display: block;
+}
+
+input[type="checkbox"]{
+    display: inline-block;
+}
+
+body > div.bookshelf input[type="checkbox"] {
+    display: none;
+}
+
+.book > .checkbox:has(input[type="checkbox"]) {
+    background-color: #d3d3d3
+}
+
+.book > .checkbox:has(input[type="checkbox"]:checked) {
+    background-color: green;
+
+}
+
+.bookshelf {
+    display: grid;
+    grid-template-columns: 300px;
+    row-gap: 10px;
+}
+
+.book{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px black solid;
+    border-radius: 5px;
+
+}
+
+.x{
+    background-color: red;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+label{
+   display: block;
+   user-select: none;
+}
+
+.template {
+    display: none;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="book-form">
+        <input type="text" name="title" id="title" placeholder="title" required>
+        <input type="text" name="author" id="author" placeholder="author" required>
+        <input type="number" name="pages" id="pages" placeholder="225" required>
+        <label name="read">Read? <input type="checkbox" name="read" id="read"></label>
+        <p><button id="submit-button">Submit</button></p>
+    </form>
+    <div class="bookshelf">
+        <div class="book template" data-bookid="template">
+            <div class="x"></div>
+            <div class="title field">Harry Potter and the Sorcerer's Stone</div>
+            <div class="author field">J. K. Rowling</div>
+            <div class="pages field">255</div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" class="checkbox field" id="book-template">
+                    Read
+                </label>
+            </div>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
