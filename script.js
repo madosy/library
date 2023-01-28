@@ -117,6 +117,12 @@ bookForm.addEventListener('submit', (e) => {
     bookForm.reset();
 })
 
+function toggleOverlay(mode) {
+    let overlay = document.querySelector('.overlay')
+    mode==1? overlay.classList.add('visible') :
+    overlay.classList.remove('visible')
+}
+
 
 addBookToLibrary(
     'Jane Eyre',
@@ -143,5 +149,18 @@ addBookToLibrary(
     "Of Mice and Men",
     "John Steinbeck",
     107,
+    false
+)
+
+addBookToLibrary(
+    'Harry Potter and the Sorcerer\'s Stone And Hairy Potato',
+    'Dasom',
+    234,
+    true
+)
+addBookToLibrary(
+    'My Grandmother Asked Me to Tell You She’s Sorry',
+    'FREDRIK BACKMAN',
+    250,
     false
 )

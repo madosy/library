@@ -12,10 +12,71 @@
 
 }
 
-/* .header{
-    border-bottom:var(--stroke) 5px solid;
-    margin-bottom: 15px;
-} */
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px 0 40px;
+    flex-wrap: wrap;
+}
+
+.overlay{
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    /* align-items: center; */
+    padding-top: 20px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(39,35,67,95%);
+    z-index: 1;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+}
+
+.overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-container {
+    /* min-width: 200px; */
+    height: min-content;
+    background-color: var(--card-background);
+    opacity: 100%;
+    padding: 30px 20px;
+    border: 3px solid var(--stroke);
+    border-radius: 10px;
+    flex-grow: 1;
+    margin: 20px;
+    max-width: 500px;
+}
+
+.form-container .button-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-container input{
+    padding:5px;
+}
+
+.form-container input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+}
+
+.form-container h2{
+    margin: 0;
+}
+
+.form-container > * {
+    display: flex;
+    flex-direction: column;
+}
 
 .accent{
     color: var(--ico-tertiary);
@@ -31,7 +92,7 @@ input[type="checkbox"]{
     display: inline-block;
 }
 
-body > div.bookshelf input[type="checkbox"] {
+.bookshelf input[type="checkbox"] {
     display: none;
 }
 
@@ -41,27 +102,34 @@ body > div.bookshelf input[type="checkbox"] {
 }
 
 .book > .checkbox:has(input[type="checkbox"]:checked) {
-    background-color: rgb(170, 203, 115);
+    background-color: rgb(205, 233, 144);
 
 }
 
-body > div.bookshelf div.checkbox > label::before {
+.bookshelf div.checkbox > label::before {
     content: 'Not';
 }
 
 /* Using CSS to conditionally update read status */
-body > div.bookshelf div.checkbox:has(input[type="checkbox"]:checked) label::before {
+.bookshelf div.checkbox:has(input[type="checkbox"]:checked) label::before {
     content: '';
 }
 
 body {
     background-color: var(--background);
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    padding: 15px;
 }
 
 .bookshelf {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    grid-auto-rows: 1fr;
     gap: 15px;
 }
 
@@ -91,18 +159,42 @@ label{
     display: grid;
     grid-template-rows: 1fr max-content max-content max-content;
     position: relative;
-    /* border: 1px black solid; */
     border-radius: 10px;
     padding: 20px 15px;
     text-align: center;
-    height: 200px;
+    /* height: 200px; */
     box-sizing: border-box;
+    box-shadow: 4px 4px 10px #bae8e8;
 }
 
 .title, .author, .pages {
     margin-bottom: 10px;
     align-self: center;
     color: var(--card-paragraph);
+    word-break: break-word;
+}
+
+.author {
+    text-transform: uppercase;
+}
+
+
+/* Conversion to Flex Layout */
+.bookshelf.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book.flex{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 350px;
+    height:fit-content;
+}
+
+.book.flex .title{
+    align-self: auto;
 }
 
 .title {
@@ -121,14 +213,15 @@ label{
 }
 
 
-.template {
+.book.template {
     display: none;
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 400px) {
     .bookshelf {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 15px;
+        grid-auto-rows: min-content;
     }
 
     .header h1 {
