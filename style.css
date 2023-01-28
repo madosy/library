@@ -99,11 +99,16 @@ input[type="checkbox"]{
 .book > .checkbox:has(input[type="checkbox"]) {
     background-color: #ededed;
     margin-top: 5px;
+    transition: all ease-in-out 0.2s;
 }
 
 .book > .checkbox:has(input[type="checkbox"]:checked) {
     background-color: rgb(205, 233, 144);
 
+}
+
+.bookshelf div.checkbox label {
+    cursor: pointer;
 }
 
 .bookshelf div.checkbox > label::before {
@@ -215,6 +220,27 @@ label{
 
 .book.template {
     display: none;
+}
+
+.add{
+    appearance: none;
+    border: 0;
+    background-color: rgba(0,0,0,0%);
+    background-image: url(./images/mathematics-sign-plus-outline-icon.svg);
+    background-size: contain;
+    opacity: 80%;
+    transition: ease-in 0.2s;
+    width: 5rem;
+    height: 5rem;
+    align-self: center;
+    justify-self: center;
+    order: 9999;
+    cursor:pointer;
+}
+
+.add:hover {
+    background-image: url(./images/mathematics-sign-plus-round-icon.svg);
+    opacity: 1;
 }
 
 @media only screen and (max-width: 400px) {
