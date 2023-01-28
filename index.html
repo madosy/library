@@ -14,19 +14,33 @@
             <form id="book-form">
                 <h2>Add a new book:</h2>
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" placeholder="Title" required>
+                <input type="text" name="title" id="title" placeholder="Title" maxlength="90" required>
                 <label for="author">Author</label>
-                <input type="text" name="author" id="author" placeholder="Author" required>
+                <input type="text" name="author" id="author" placeholder="Author" maxlength="70" required>
                 <label for="pages">Page Count</label>
-                <input type="number" name="pages" id="pages" placeholder="# of Pages" required>
+                <input type="number" name="pages" id="pages" placeholder="# of Pages" maxlength="10" required>
                 <label name="read">Have you read it? <input type="checkbox" name="read" id="read"></label>
+                <input type="text" name="uid" id="uid" readonly>
             </form>
                 <div class="button-container">
-                    <button form="book-form" id="submit-button" onclick="toggleOverlay(0)">Submit</button>
-                    <button onclick="toggleOverlay(0)">Cancel</button>
+                    <button form="book-form" id="submit-button">Submit</button>
+                    <button id="modify-button" onclick="modifyBook()">Modify</button>
+                    <button onclick="cancelSubmit()">Cancel</button>
                 </div>
         </div>
     </div>
+    <!-- <div class="book-overlay">
+        <div class="detailed-view">
+            <label for="detailed-title">Title</label>
+            <textarea readonly id="detailed-title"></textarea>
+            <label for="detailed-author">Author</label>
+            <textarea name="author" id="detailed-author"></textarea>
+            <label for="detailed-pages">Pages</label>
+            <textarea name="pages" id="detailed-pages"></textarea>
+            <label for="detailed-read">Read Status</label>
+            <input disabled type="checkbox" name="read-status" id="detailed-read">
+        </div>
+    </div> -->
     <div class="container">
         <div class="header">
             <h1>my<span class="accent">Library</span></h1>
@@ -45,9 +59,10 @@
                     </label>
                 </div>
             </div>
-            <button class="add" onclick="toggleOverlay(1)"></button>
+            <button class="add" onclick="toggleOverlay(1)" data-bookid="button"></button>
         </div>
     </div>
+    <script src="library_obj.js"></script>
     <script src="script.js" defer></script>
 </body>
 </html>

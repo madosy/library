@@ -24,19 +24,19 @@
     font-family: 'Fredoka One', cursive;
     font-weight: 400;
     font-size: 1.4rem;
-    /* max-height: 100px; */
-    overflow: visible;
 }
 
 .title::before {
-    content: '“';
+    content: '“ ';
     position: relative;
-    right: 3px;
+    letter-spacing: -2px;
+
 }
 .title::after {
-    content: '”';
+    content: ' ”';
     position: relative;
-    left: 3px;
+    left: -2px;
+    /* letter-spacing: -3px; */
 }
 
 .author, .pages, .checkbox {
