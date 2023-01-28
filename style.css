@@ -276,11 +276,11 @@ label{
     .book{
         height: fit-content;
     }
+}
 
+@media (hover: none) {
     .x{
         background-image: url(./images/red-x-line-icon.png);
-        width: 15px;
-        height: 15px;
     }
 }
 
