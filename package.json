@@ -1,0 +1,26 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "1. Grab info from the form 2. Add info to the myLibrary array",
+  "main": "library_obj.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madosy/library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madosy/library/issues"
+  },
+  "homepage": "https://github.com/madosy/library#readme",
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
+}
