@@ -7,23 +7,22 @@ const getBook = function findBookByUIDThenReturnBook(uid) {
   return myLibrary[getInd];
 };
 
-
-const uid = function generateUniqueID() {
-  return Date.now().toString(36) + Math.random().toString(36).substring(2);
-};
-
 function updateRead(bookid, status) {
   const updateInd = myLibrary.map((item) => item.uid).indexOf(bookid);
   myLibrary[updateInd].read = status;
 }
 
 class Book {
+static generateUID() {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+}
+
   constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.uid = uid();
+    this.uid = Book.generateUID();
   }
 }
 
